@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>天気予報アプリ</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="weather-app">
+      <h1>天気予報アプリ</h1>
+      <input
+        type="text"
+        id="city-input"
+        placeholder="都市名を入力 (例: Tokyo)"
+      />
+      <button id="get-weather">天気を取得</button>
+      <div id="weather-result">
+        <p id="temperature"></p>
+        <p id="description"></p>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
