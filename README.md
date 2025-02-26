@@ -47,6 +47,6 @@ Webブラウザで、Chromeを現在利用していない場合は必ずイン�
 
 - [Day3: 講義資料](./day3/README.md)
 
-##
+## OpenAI/関数
 
 - [Day4: 講義資料](./day4/README.md)

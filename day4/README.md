@@ -15,9 +15,7 @@ Day04 では OpenAI API を使って外からデータを取得します。
 
 ## 準備
 
-1. Day04 を[こちら](https://drive.google.com/drive/folders/1cX-RS-hNDjrOxEcH3dyIoTByU5p__kTX)からダウンロード
-1. VScode で展開
-1. `index.html`をブラウザに表示しましょう
+1. [OpenAI](./OpenAI/)の`index.html`をブラウザに表示しましょう
 
 <img src="./readme_images/day4_2.avif" width=50%/>
 
@@ -36,8 +34,8 @@ https://platform.openai.com/docs/overview
 
 無駄撃ちしないでください 🙇‍♂️🙇‍♂️🙇‍♂️
 
-```script.js
-const API_KEY = "";
+```js
+const API_KEY = ""
 ```
 
 ### 実装したいこと
@@ -47,15 +45,15 @@ const API_KEY = "";
 1. AI が返事をして、画面に表示する
 1. スクロールして最新のメッセージが見えるようにする
 
-```script.js
+```js
 $(document).ready(function () {
   $("#sendButton").on("click", function () {
-    const userInput = $("#userInput").val();
+    const userInput = $("#userInput").val()
     // console.log(userInput);
-    $("#chatBox").append("<div><strong>あなた:</strong> " + userInput + "</div>");
-    $("#userInput").val(""); // 入力欄をクリア
-  });
-});
+    $("#chatBox").append("<div><strong>あなた:</strong> " + userInput + "</div>")
+    $("#userInput").val("") // 入力欄をクリア
+  })
+})
 ```
 
 #### リクエスト
@@ -64,8 +62,8 @@ $(document).ready(function () {
 
 https://platform.openai.com/docs/api-reference/chat/create
 
-```script.js
-$("#userInput").val(""); // 入力欄クリア
+```js
+$("#userInput").val("") // 入力欄クリア
 
 // 以下追記
 
@@ -79,11 +77,11 @@ $.ajax({
   data: JSON.stringify({
     model: "gpt-4o-mini",
     messages: [
-        { role: "system", content: "ユーザーの質問に簡潔に答えてください（50文字以内）。"},
-        { role: "user", content: userInput }
+      { role: "system", content: "ユーザーの質問に簡潔に答えてください（50文字以内）。" },
+      { role: "user", content: userInput },
     ],
     max_tokens: 100,
-    temperature: 0.3
+    temperature: 0.3,
   }),
   success: function (response) {
     // 成功時の処理
@@ -91,11 +89,9 @@ $.ajax({
   },
   error: function () {
     // 失敗時の処理
-    $("#chatBox").append(
-       "<div><strong>AI:</strong> エラーが発生しました。</div>"
-    );
+    $("#chatBox").append("<div><strong>AI:</strong> エラーが発生しました。</div>")
   },
-});
+})
 ```
 
 - POST
@@ -132,22 +128,24 @@ console.log(user.name) // ✅ "Yuki"
 
 レスポンスから必要な値を抽出します。
 
-```swift
+```json
 {
   "id": "chatcmpl-123",
   "object": "chat.completion",
   "created": 1677652288,
   "model": "gpt-4o-mini",
   "system_fingerprint": "fp_44709d6fcb",
-  "choices": [{
-    "index": 0,
-    "message": {
-      "role": "assistant",
-      "content": "\n\nHello there, how may I assist you today?",
-    },
-    "logprobs": null,
-    "finish_reason": "stop"
-  }],
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "\n\nHello there, how may I assist you today?"
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
   "service_tier": "default",
   "usage": {
     "prompt_tokens": 9,
@@ -160,7 +158,6 @@ console.log(user.name) // ✅ "Yuki"
     }
   }
 }
-
 ```
 
 - response(☝️ の全体)
@@ -176,7 +173,6 @@ const apiResponse = response.choices[0].message.content
 `apiResponse`に入っている AI の返答を`id = "chatBox"`の HTML タグに表示します。
 
 ```js
-
 success: function (response) {
     const aiResponse = response.choices[0].message.content;
     $("#chatBox").append(
@@ -190,7 +186,6 @@ success: function (response) {
 https://api.jquery.com/scrollTop/
 
 ```js
-
 success: function (response) {
     const aiResponse = response.choices[0].message.content;
     $("#chatBox").append(
@@ -333,7 +328,7 @@ error: function () {
 
 ### じゃんけんを関数を使って実装しよう
 
-`Janken`フォルダの`index.html`をブラウザに表示しましょう
+[Janken](./Janken)フォルダの`index.html`をブラウザに表示しましょう
 
 #### 関数にしたい処理
 
