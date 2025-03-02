@@ -21,13 +21,14 @@ Webブラウザで、Chromeを現在利用していない場合は必ずイン�
 
 **③ VSCode のおすすめ拡張機能をインストール**
 
-- Prettier - Code Formatter
+```
+・ Prettier - Code Formatter
+  ・ コード保存時にコードを綺麗に整えてくれる拡張機能
+  ・ [設定方法](https://webspe.net/vscode-prettier/)
 
-  - コード保存時にコードを綺麗に整えてくれる拡張機能
-  - [設定方法](https://webspe.net/vscode-prettier/)
-
-- Code Spell Checker
-  - タイポを防いでくれる
+・ Code Spell Checker
+  ・ タイポを防いでくれる
+```
 
 <br />
 <br />
